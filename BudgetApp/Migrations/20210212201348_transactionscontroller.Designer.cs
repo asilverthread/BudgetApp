@@ -4,14 +4,16 @@ using BudgetApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BudgetApp.Migrations
 {
     [DbContext(typeof(BudgetContext))]
-    partial class BudgetContextModelSnapshot : ModelSnapshot
+    [Migration("20210212201348_transactionscontroller")]
+    partial class transactionscontroller
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,7 +85,7 @@ namespace BudgetApp.Migrations
                     b.Property<string>("Owner")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RecurringTransactionId")
+                    b.Property<int>("RecurringTransactionId")
                         .HasColumnType("int");
 
                     b.HasKey("TransactionId");
@@ -136,7 +138,9 @@ namespace BudgetApp.Migrations
                 {
                     b.HasOne("BudgetApp.Models.RecurringTransaction", "RecurringTransaction")
                         .WithMany("Transactions")
-                        .HasForeignKey("RecurringTransactionId");
+                        .HasForeignKey("RecurringTransactionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("RecurringTransaction");
                 });

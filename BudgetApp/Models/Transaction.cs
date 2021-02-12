@@ -21,8 +21,8 @@ namespace BudgetApp.Models
         public string Account { get; set; }
         public string Owner { get; set; }
         public string CheckNumber { get; set; }
-        public int RecurringTransactionId { get; set; }
-        public RecurringTransaction RecurringTransaction { get; set; }
+        public int? RecurringTransactionId { get; set; }
+        public RecurringTransaction? RecurringTransaction { get; set; }
         
     }
 }

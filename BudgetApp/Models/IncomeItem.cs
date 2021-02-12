@@ -9,7 +9,6 @@ namespace BudgetApp.Models
 {
     public class IncomeItem : RecurringTransaction
     {
-        public ICollection<Transaction> Transactions { get; set; }
 
     }
 }
