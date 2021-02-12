@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BudgetApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BudgetApp
 {
@@ -24,6 +26,9 @@ namespace BudgetApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<BudgetContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("BudgetContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

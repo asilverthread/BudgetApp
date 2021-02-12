@@ -1,0 +1,84 @@
+﻿@model BudgetApp.Models.DebtRepayment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>DebtRepayment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TotalAmount" class="control-label"></label>
+                <input asp-for="TotalAmount" class="form-control" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Minimum" class="control-label"></label>
+                <input asp-for="Minimum" class="form-control" />
+                <span asp-validation-for="Minimum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PastDue" class="control-label"></label>
+                <input asp-for="PastDue" class="form-control" />
+                <span asp-validation-for="PastDue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interest" class="control-label"></label>
+                <input asp-for="Interest" class="form-control" />
+                <span asp-validation-for="Interest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Limit" class="control-label"></label>
+                <input asp-for="Limit" class="form-control" />
+                <span asp-validation-for="Limit" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="RecurringTransactionId" />
+            <div class="form-group">
+                <label asp-for="Source" class="control-label"></label>
+                <input asp-for="Source" class="form-control" />
+                <span asp-validation-for="Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="form-control" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecurringType" class="control-label"></label>
+                <input asp-for="RecurringType" class="form-control" />
+                <span asp-validation-for="RecurringType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecurringDay" class="control-label"></label>
+                <input asp-for="RecurringDay" class="form-control" />
+                <span asp-validation-for="RecurringDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
